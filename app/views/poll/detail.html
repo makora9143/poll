@@ -1,0 +1,14 @@
+{{set . "title" "Detail"}}
+{{template "header.html" .}}
+<h1>{{ .question.QuestionText }}</h1>
+<form action="{{url "Poll.Vote" .question.QuestionId}}" method="POST">
+	{{range .choices}}
+		<input type="radio" name="choice" id="choice{{.ChoiceId}}" value="{{.ChoiceId}}">
+		{{.ChoiceText}}<br>
+	{{end}}
+
+<p class="buttons">
+<input type="submit" value="Vote">
+</p>
+</form>
+{{template "footer.html" .}}

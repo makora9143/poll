@@ -1,0 +1,14 @@
+{{set . "title" "Results"}}
+{{template "header.html" .}}
+
+
+<h1>{{ .question.QuestionText }}</h1>
+<ul>
+{{range .choices}}
+    <li>{{.ChoiceText}} -- {{.Vote}} vote</li>
+{{end}}
+</ul>
+
+<a href="{{url "Poll.Detail" .question.QuestionId}}">Vote again?</a>
+
+{{template "footer.html" .}}

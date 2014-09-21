@@ -1,0 +1,14 @@
+{{set . "title" "Poll"}}
+{{template "header.html" .}}
+
+{{ if not .questions }}
+<p>No polls are available.</p>
+{{else}}
+<ul>
+	{{range .questions}}
+	<li><a href="poll/{{.QuestionId}}">{{.QuestionText}}</a></li>
+	{{end}}
+</ul>
+{{end}}
+
+{{template "footer.html" .}}
